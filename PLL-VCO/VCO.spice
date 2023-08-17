@@ -1,0 +1,53 @@
+* SPICE3 file created from VCO.ext - technology: min2
+.include models.txt
+.option scale=0.09u
+
+M1000 Vdd a_4_n79# a_124_n27# Vdd pmos w=8 l=3
++  ad=192 pd=112 as=96 ps=56
+M1001 a_93_n50# a_53_n50# a_84_n79# Gnd nmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1002 Vdd a_4_n79# a_4_n79# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=48 ps=28
+M1003 Vout a_93_n50# a_124_n27# w_117_n33# pmos w=8 l=3
++  ad=48 pd=28 as=0 ps=0
+M1004 a_53_n50# Vout a_44_n79# Gnd nmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1005 a_93_n50# a_53_n50# a_84_n27# w_77_n33# pmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1006 Gnd Vctrl a_124_n79# Gnd nmos w=8 l=3
++  ad=192 pd=112 as=96 ps=56
+M1007 Gnd Vctrl a_84_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1008 a_53_n50# Vout a_44_n27# w_37_n33# pmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1009 Vdd a_4_n79# a_84_n27# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1010 Gnd Vctrl a_44_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1011 Gnd Vctrl a_4_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=48 ps=28
+M1012 Vdd a_4_n79# a_44_n27# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1013 Vout a_93_n50# a_124_n79# Gnd nmos w=8 l=3
++  ad=48 pd=28 as=0 ps=0
+C0 a_124_n79# Gnd 3.18fF
+C1 a_84_n79# Gnd 3.18fF
+C2 a_44_n79# Gnd 3.18fF
+C3 a_93_n50# Gnd 3.26fF
+C4 a_53_n50# Gnd 3.26fF
+C5 Vout Gnd 5.76fF
+C6 a_124_n27# Gnd 2.76fF
+C7 a_84_n27# Gnd 2.76fF
+C8 a_44_n27# Gnd 2.76fF
+C9 a_4_n79# Gnd 3.50fF
+C10 Vdd Gnd 15.71fF
+
+
+Vd Vdd Gnd 3.3V
+Vin Vctrl Gnd PULSE(1.2 3.3 0 1p 1p 5n 10n)
+.tran 1p 20n
+.control
+run
+plot V(Vout) V(Vctrl)
+.endc
+.end

@@ -1,0 +1,71 @@
+* SPICE3 file created from XOR.ext - technology: min2
+.include models.txt
+.option scale=0.09u
+
+M1000 Vdd VCO_0/a_4_n79# VCO_0/a_124_n27# Vdd pmos w=8 l=3
++  ad=240 pd=140 as=96 ps=56
+M1001 VCO_0/a_93_n50# VCO_0/a_53_n50# VCO_0/a_84_n79# Gnd nmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1002 Vdd VCO_0/a_4_n79# VCO_0/a_4_n79# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=48 ps=28
+M1003 VinB VCO_0/a_93_n50# VCO_0/a_124_n27# VCO_0/w_117_n33# pmos w=8 l=3
++  ad=96 pd=56 as=0 ps=0
+M1004 VCO_0/a_53_n50# VinB VCO_0/a_44_n79# Gnd nmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1005 VCO_0/a_93_n50# VCO_0/a_53_n50# VCO_0/a_84_n27# VCO_0/w_77_n33# pmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1006 Gnd VCO_0/Vctrl VCO_0/a_124_n79# Gnd nmos w=8 l=3
++  ad=240 pd=140 as=96 ps=56
+M1007 Gnd VCO_0/Vctrl VCO_0/a_84_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1008 VCO_0/a_53_n50# VinB VCO_0/a_44_n27# VCO_0/w_37_n33# pmos w=8 l=3
++  ad=48 pd=28 as=96 ps=56
+M1009 Vdd VCO_0/a_4_n79# VCO_0/a_84_n27# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1010 Gnd VCO_0/Vctrl VCO_0/a_44_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1011 Gnd VCO_0/Vctrl VCO_0/a_4_n79# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=48 ps=28
+M1012 Vdd VCO_0/a_4_n79# VCO_0/a_44_n27# Vdd pmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1013 VinB VCO_0/a_93_n50# VCO_0/a_124_n79# Gnd nmos w=8 l=3
++  ad=49 pd=29 as=0 ps=0
+M1014 a_n80_n293# Vin Gnd Gnd nmos w=8 l=3
++  ad=96 pd=56 as=0 ps=0
+M1015 Xor_out VinB Vin w_n59_n279# pmos w=8 l=3
++  ad=96 pd=56 as=48 ps=28
+M1016 a_n80_n293# Vin Vdd w_n95_n279# pmos w=8 l=3
++  ad=48 pd=28 as=0 ps=0
+M1017 VinB a_n80_n293# Xor_out Gnd nmos w=8 l=3
++  ad=0 pd=0 as=96 ps=56
+M1018 VinB Vin Xor_out w_n23_n279# pmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+M1019 Xor_out VinB a_n80_n293# Gnd nmos w=8 l=3
++  ad=0 pd=0 as=0 ps=0
+C0 Xor_out Gnd 6.25fF
+C1 a_n80_n293# Gnd 5.03fF
+C2 VCO_0/a_124_n79# Gnd 3.18fF
+C3 VCO_0/a_84_n79# Gnd 3.18fF
+C4 VCO_0/a_44_n79# Gnd 3.18fF
+C5 VCO_0/a_93_n50# Gnd 3.26fF
+C6 VCO_0/a_53_n50# Gnd 3.26fF
+C7 VinB Gnd 9.88fF
+C8 VCO_0/a_124_n27# Gnd 2.76fF
+C9 VCO_0/a_84_n27# Gnd 2.76fF
+C10 VCO_0/a_44_n27# Gnd 2.76fF
+C11 VCO_0/a_4_n79# Gnd 3.50fF
+C12 Vdd Gnd 17.54fF
+
+Rfil Xor_out VCO_0/Vctrl 1k
+Cfil VCO_0/Vctrl Gnd 1u
+Vd Vdd Gnd 3.3V
+Vi VinA Gnd PULSE(0.5 3.3 0 100p 100p 2.5n 5n)
+.tran 1p 50n
+.control
+run
+**Inputm, VCO Output plot
+plot V(VinA) V(VinB)
+**plot of  in pll ckt
+*plot V(VinB)
+.endc
+.end
