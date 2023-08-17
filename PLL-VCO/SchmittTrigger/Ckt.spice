@@ -1,0 +1,36 @@
+* SPICE3 file created from Ckt.ext - technology: scmos
+
+.option scale=1u
+
+M1000 Gnd Vout a_n20_22# Vdd pfet w=5 l=5
++  ad=250 pd=150 as=150 ps=90
+M1001 a_n20_22# Vin Vdd Vdd pfet w=5 l=5
++  ad=0 pd=0 as=50 ps=30
+M1002 Vout Vin a_n20_1# Gnd nfet w=5 l=5
++  ad=50 pd=30 as=150 ps=90
+M1003 Vdd Vout a_n20_1# Gnd nfet w=5 l=5
++  ad=250 pd=150 as=0 ps=0
+M1004 Vout Vin a_n20_22# Vdd pfet w=5 l=5
++  ad=50 pd=30 as=0 ps=0
+M1005 a_n20_1# Vin Gnd Gnd nfet w=5 l=5
++  ad=0 pd=0 as=50 ps=30
+C0 Vdd Vout 17.56fF
+C1 Vdd Vin 10.88fF
+C2 Vdd a_n20_22# 10.34fF
+C3 Gnd Gnd 32.43fF
+C4 a_n20_1# Gnd 10.11fF
+C5 Vout Gnd 10.55fF
+C6 Vin Gnd 9.10fF
+
+.model nfet nmos
+.model pfet pmos
+
+Vd Vdd Gnd 3.3 dc
+Vi Vin Gnd sin(0 3.3 1000)
+
+.tran 0.01m 5m
+.control
+run
+plot V(Vin) V(Vout)
+.endc
+.end

@@ -1,0 +1,30 @@
+* SPICE3 file created from ckt_min2.ext - technology: min2
+.include models.txt
+.option scale=0.09u
+
+M1000 Vout Vin a_n20_1# Gnd nmos w=5 l=5
++  ad=50 pd=30 as=150 ps=90
+M1001 Vdd Vout a_n20_1# Gnd nmos w=5 l=5
++  ad=250 pd=150 as=0 ps=0
+M1002 Vout Vin a_n20_22# Vdd pmos w=5 l=5
++  ad=50 pd=30 as=150 ps=90
+M1003 a_n20_1# Vin Gnd Gnd nmos w=5 l=5
++  ad=0 pd=0 as=50 ps=30
+M1004 Gnd Vout a_n20_22# Vdd pmos w=5 l=5
++  ad=250 pd=150 as=0 ps=0
+M1005 a_n20_22# Vin Vdd Vdd pmos w=5 l=5
++  ad=0 pd=0 as=50 ps=30
+C0 Vdd Gnd 13.86fF
+C1 a_n20_1# Gnd 5.62fF
+C2 Vout Gnd 3.60fF
+C3 a_n20_22# Gnd 4.66fF
+
+Vd Vdd Gnd 3.3 dc
+Vi Vin Gnd sin(0 3.3 1000)
+
+.tran 0.01m 5m
+.control
+run
+plot V(Vin) V(Vout)
+.endc
+.end

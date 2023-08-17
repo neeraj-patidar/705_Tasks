@@ -1,0 +1,29 @@
+timestamp 1679443135
+version 8.3
+tech min2
+style lambda=0.09
+scale 1000 1000 9
+resistclasses 8000 8000 900000 900000 7400 80
+node "Vdd" 16 1.8076 37 -7 ndiff 50 30 0 0 0 0 0 0 0 0 50 30
+node "a_n20_1#" 92 5.6174 -20 1 ndc 150 90 0 0 0 0 0 0 0 0 315 136
+node "Gnd" 16 1.5522 37 30 pdiff 0 0 50 30 0 0 0 0 0 0 50 30
+node "Vout" 107 3.5993 -5 1 ndiff 50 30 50 30 0 0 0 0 250 110 320 138
+node "a_n20_22#" 92 4.6566 -20 22 pdc 0 0 150 90 0 0 0 0 0 0 320 138
+node "Vin" 96 0.18282 -10 -18 p 0 0 0 0 0 0 0 0 325 140 0 0
+node "Vdd" 1671 12.0074 -29 12 nw 200 120 50 30 5320 302 0 0 0 0 915 218
+substrate "Gnd" 0 0 -20 -35 poc 50 30 200 120 0 0 0 0 0 0 915 218
+cap "a_n20_22#" "Vout" 0.0769567
+cap "Vin" "a_n20_22#" 0.07575
+cap "Vdd" "Vout" 0.38641
+cap "Vdd" "Vin" 0.22563
+cap "Vout" "a_n20_1#" 0.0769567
+cap "Vin" "a_n20_1#" 0.07575
+cap "Vdd" "Gnd" 0.05945
+cap "Vdd" "a_n20_22#" 0.30167
+device mosfet nmos -10 -15 -9 -14 5 5 "Gnd" "Vin" 10 0 "Gnd" 5 0 "a_n20_1#" 5 0
+device mosfet nmos 32 -7 33 -6 5 5 "Gnd" "Vout" 10 0 "a_n20_1#" 5 0 "Vdd" 5 0
+device mosfet nmos -10 1 -9 2 5 5 "Gnd" "Vin" 10 0 "a_n20_1#" 5 0 "Vout" 5 0
+device mosfet pmos -10 22 -9 23 5 5 "Vdd" "Vin" 10 0 "a_n20_22#" 5 0 "Vout" 5 0
+device mosfet pmos 32 30 33 31 5 5 "Vdd" "Vout" 10 0 "a_n20_22#" 5 0 "Gnd" 5 0
+device mosfet pmos -10 39 -9 40 5 5 "Vdd" "Vin" 10 0 "Vdd" 5 0 "a_n20_22#" 5 0
+subcap "Vdd" -0.01136
